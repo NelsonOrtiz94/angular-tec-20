@@ -72,5 +72,53 @@ export const MOCK_TASKS: SprintTask[] = [
     tags: ['docs'],
     createdAt: '2026-06-02T12:00:00.000Z',
     updatedAt: '2026-06-02T12:00:00.000Z'
+  },
+  {
+    id: 'TASK-107',
+    title: 'Revisar accesibilidad del formulario',
+    description: 'Validar que todos los inputs tengan labels asociados y navegación por teclado.',
+    status: 'todo',
+    priority: 'medium',
+    assignee: 'Laura Gómez',
+    dueDate: '2026-06-18',
+    tags: ['a11y', 'forms'],
+    createdAt: '2026-06-03T08:00:00.000Z',
+    updatedAt: '2026-06-03T08:00:00.000Z'
+  },
+  {
+    id: 'TASK-108',
+    title: 'Optimizar bundle de producción',
+    description: 'Analizar y reducir el tamaño del bundle usando lazy loading y tree shaking.',
+    status: 'todo',
+    priority: 'low',
+    assignee: 'Pedro Sánchez',
+    dueDate: '2026-06-20',
+    tags: ['performance', 'build'],
+    createdAt: '2026-06-03T09:00:00.000Z',
+    updatedAt: '2026-06-03T09:00:00.000Z'
+  },
+  {
+    id: 'TASK-109',
+    title: 'Implementar guards de navegación',
+    description: 'Agregar guards para proteger rutas de edición cuando no hay tarea seleccionada.',
+    status: 'in-progress',
+    priority: 'high',
+    assignee: 'Carlos Ruiz',
+    dueDate: '2026-06-14',
+    tags: ['routing', 'security'],
+    createdAt: '2026-06-03T10:00:00.000Z',
+    updatedAt: '2026-06-04T11:00:00.000Z'
+  },
+  {
+    id: 'TASK-110',
+    title: 'Agregar soporte para modo oscuro',
+    description: 'Implementar tema oscuro usando variables CSS de Tailwind y preferencias del sistema.',
+    status: 'blocked',
+    priority: 'low',
+    assignee: 'Ana Torres',
+    dueDate: '2026-06-25',
+    tags: ['ui', 'theming'],
+    createdAt: '2026-06-04T07:00:00.000Z',
+    updatedAt: '2026-06-04T07:00:00.000Z'
   }
 ];
