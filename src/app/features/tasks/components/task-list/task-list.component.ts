@@ -6,7 +6,7 @@ import { TaskCardComponent } from '../task-card/task-card.component';
 @Component({
   selector: 'app-task-list',
   standalone: true,
-  imports: [TaskCardComponent, RouterLink],
+  imports: [TaskCardComponent],
   template: `
     @if (store.loading()) {
       <div class="flex justify-center items-center py-16" aria-live="polite" aria-busy="true">

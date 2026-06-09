@@ -7,20 +7,32 @@ import { TaskPriorityPipe } from '../../../../shared/pipes/task-priority.pipe';
 @Component({
   selector: 'app-task-card',
   standalone: true,
-  imports: [RouterLink, TaskStatusPipe, TaskPriorityPipe],
+  imports: [RouterLink, TaskStatusPipe],
   template: `
     <a
       [routerLink]="['/tasks', task().id]"
       class="block p-4 bg-white rounded-lg shadow hover:shadow-md transition-shadow border-l-4 cursor-pointer"
-      [class]="task().priority | taskPriority:'border'"
       [attr.aria-label]="'Ver detalle de ' + task().title"
+      [class]="borderClass()"
     >
       <div class="flex items-start justify-between gap-2">
         <h3 class="font-semibold text-gray-800 text-sm leading-tight">{{ task().title }}</h3>
-        <span class="shrink-0 text-xs px-2 py-0.5 rounded-full font-medium"
-          [class]="task().priority | taskPriority:'class'">
-          {{ task().priority | taskPriority:'label' }}
-        </span>
+
+        <!-- @switch para el badge de prioridad -->
+        @switch (task().priority) {
+          @case ('critical') {
+            <span class="shrink-0 text-xs px-2 py-0.5 rounded-full font-medium bg-red-100 text-red-700">Crítica</span>
+          }
+          @case ('high') {
+            <span class="shrink-0 text-xs px-2 py-0.5 rounded-full font-medium bg-orange-100 text-orange-700">Alta</span>
+          }
+          @case ('medium') {
+            <span class="shrink-0 text-xs px-2 py-0.5 rounded-full font-medium bg-yellow-100 text-yellow-700">Media</span>
+          }
+          @default {
+            <span class="shrink-0 text-xs px-2 py-0.5 rounded-full font-medium bg-gray-100 text-gray-600">Baja</span>
+          }
+        }
       </div>
 
       <p class="text-xs text-gray-500 mt-1 line-clamp-2">{{ task().description }}</p>
@@ -45,4 +57,13 @@ import { TaskPriorityPipe } from '../../../../shared/pipes/task-priority.pipe';
 })
 export class TaskCardComponent {
   readonly task = input.required<SprintTask>();
+
+  borderClass(): string {
+    switch (this.task().priority) {
+      case 'critical': return 'border-red-500';
+      case 'high':     return 'border-orange-400';
+      case 'medium':   return 'border-yellow-400';
+      default:         return 'border-gray-300';
+    }
+  }
 }
