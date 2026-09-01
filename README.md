@@ -1,6 +1,6 @@
 # IAS Sprint Board
 
-Aplicación Angular 20 para gestión de tareas de un sprint de desarrollo. Construida con componentes standalone, signals, formularios reactivos tipados, HttpClient con interceptor funcional y Tailwind CSS-
+Aplicación Angular 20 para gestión de tareas de un sprint de desarrollo. Construida con componentes standalone, signals, formularios reactivos tipados, HttpClient con interceptor funcional y Tailwind CSS.
 
 ## Requisitos previos
 
